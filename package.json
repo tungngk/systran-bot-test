@@ -17,8 +17,7 @@
     "dev:teamsfx:launch-testtool": "env-cmd --silent -f env/.env.testtool teamsapptester start",
     "dev": "nodemon --inspect=9239 --signal SIGINT ./index.js",
     "start": "node ./index.js",
-    "watch": "nodemon ./index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "watch": "nodemon ./index.js"
   },
   "dependencies": {
     "botbuilder": "^4.23.1",
