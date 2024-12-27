@@ -1,0 +1,56 @@
+{
+  "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
+  "version": "1.0.0",
+  "manifestVersion": "1.17",
+  "id": "${{TEAMS_APP_ID}}",
+  "name": {
+    "short": "SYSTRANTranslatorAppver1.2",
+    "full": ""
+  },
+  "developer": {
+    "name": "MEGAZONE",
+    "mpnId": "",
+    "websiteUrl": "https://www.megazone.com/us/",
+    "privacyUrl": "https://www.megazone.com/us/privacy",
+    "termsOfUseUrl": "https://www.megazone.com/us/terms"
+  },
+  "description": {
+    "short": "Auto translate message SYSTRAN",
+    "full": "An app will auto translate message"
+  },
+  "icons": {
+    "outline": "outline.png",
+    "color": "color.png"
+  },
+  "accentColor": "#FFFFFF",
+  "staticTabs": [
+    {
+      "entityId": "conversations",
+      "scopes": ["personal"]
+    },
+    {
+      "entityId": "about",
+      "scopes": ["personal"]
+    }
+  ],
+  "bots": [
+    {
+      "botId": "${{BOT_ID}}",
+      "scopes": ["personal", "team", "groupChat"],
+      "supportsFiles": false,
+      "isNotificationOnly": false,
+      "commandLists": [
+        {
+          "scopes": ["personal", "team", "groupChat"],
+          "commands": [
+            {
+              "title": "Hi",
+              "description": "Say hi to the bot."
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "validDomains": ["https://systrantranslatorbotapp.azurewebsites.net"]
+}
