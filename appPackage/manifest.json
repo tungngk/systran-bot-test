@@ -1,56 +1,110 @@
 {
   "$schema": "https://developer.microsoft.com/en-us/json-schemas/teams/v1.17/MicrosoftTeams.schema.json",
-  "version": "1.0.0",
+  "version": "1.0.21",
   "manifestVersion": "1.17",
-  "id": "${{TEAMS_APP_ID}}",
+  "id": "8e33a3d4-b2a3-4a76-b7bc-141e778d51d8",
   "name": {
-    "short": "SYSTRANTranslatorAppver1.2",
+    "short": "Translator App",
     "full": ""
   },
   "developer": {
-    "name": "MEGAZONE",
-    "mpnId": "",
-    "websiteUrl": "https://www.megazone.com/us/",
-    "privacyUrl": "https://www.megazone.com/us/privacy",
-    "termsOfUseUrl": "https://www.megazone.com/us/terms"
+    "name": "SYSTRAN",
+    "websiteUrl": "https://www.systransoft.com/",
+    "privacyUrl": "https://www.systransoft.com/systran/terms-of-service-translate-pro/",
+    "termsOfUseUrl": "https://www.systransoft.com/systran/terms-of-service-translate-pro/"
   },
   "description": {
-    "short": "Auto translate message SYSTRAN",
-    "full": "An app will auto translate message"
+    "short": "SYSTRAN Translator App",
+    "full": "Translator App by using SYSTRAN Translation API"
   },
   "icons": {
     "outline": "outline.png",
     "color": "color.png"
   },
   "accentColor": "#FFFFFF",
-  "staticTabs": [
-    {
-      "entityId": "conversations",
-      "scopes": ["personal"]
-    },
-    {
-      "entityId": "about",
-      "scopes": ["personal"]
-    }
-  ],
   "bots": [
     {
-      "botId": "${{BOT_ID}}",
+      "botId": "ad27924c-3925-4eb5-9aa8-0a822cb608b0",
       "scopes": ["personal", "team", "groupChat"],
-      "supportsFiles": false,
-      "isNotificationOnly": false,
       "commandLists": [
         {
-          "scopes": ["personal", "team", "groupChat"],
           "commands": [
             {
-              "title": "Hi",
-              "description": "Say hi to the bot."
+              "title": "Add",
+              "description": "Add new language to translate"
+            }
+          ],
+          "scopes": ["personal"]
+        },
+        {
+          "commands": [
+            {
+              "title": "Add",
+              "description": "Add new language to translate"
+            }
+          ],
+          "scopes": ["team"]
+        }
+      ],
+      "isNotificationOnly": false,
+      "supportsCalling": false,
+      "supportsVideo": false,
+      "supportsFiles": true
+    }
+  ],
+  "composeExtensions": [
+    {
+      "botId": "ad27924c-3925-4eb5-9aa8-0a822cb608b0",
+      "composeExtensionType": "botBased",
+      "commands": [
+        {
+          "id": "searchQuery",
+          "type": "query",
+          "title": "Search",
+          "description": "Test command to run query",
+          "initialRun": false,
+          "fetchTask": false,
+          "context": ["compose", "commandBox"],
+          "parameters": [
+            {
+              "name": "searchQuery",
+              "title": "Search Query",
+              "description": "Your search query",
+              "inputType": "text"
             }
           ]
         }
       ]
     }
   ],
-  "validDomains": ["https://systrantranslatorbotapp.azurewebsites.net"]
+  "validDomains": ["e925-113-190-254-54.ngrok-free.app"],
+  "webApplicationInfo": {
+    "id": "ad27924c-3925-4eb5-9aa8-0a822cb608b0"
+  },
+  "authorization": {
+    "permissions": {
+      "resourceSpecific": [
+        {
+          "name": "ChannelMessage.Send.Group",
+          "type": "Application"
+        },
+        {
+          "name": "ChannelMessage.Read.Group",
+          "type": "Application"
+        },
+        {
+          "name": "ChatMessage.Read.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "ChatMessage.Send.Chat",
+          "type": "Application"
+        },
+        {
+          "name": "ChannelSettings.Read.Group",
+          "type": "Application"
+        }
+      ]
+    }
+  }
 }
